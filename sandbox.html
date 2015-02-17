@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body, html
+    {
+    width:100%;
+    height:100%;
+    margin:0px;
+    padding: 0px;
+    }
+      #map-canvas {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script>
+      
+      google.load("maps", "3", {other_params:'sensor=TRUEorFALSE', callback: 
+      
+      function initialize() 
+      {
+        var mapCanvas = document.getElementById('map-canvas');
+        var mapOptions = {
+          center: new google.maps.LatLng(44.5403, -78.5463),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      } }); 
+      
+      function setMapCoords(lattitude, longitude)
+      {
+	map.setCenter(new google.maps.LatLng(-25.363882, 131.044922));
+      }
+      
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>

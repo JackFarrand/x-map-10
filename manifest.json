@@ -3,10 +3,26 @@
   "description": "My first Chrome App.",
   "version": "0.1",
   "manifest_version": 2,
-  "app": {
-    "background": {
-      "scripts": ["background.js"]
-    }
-  },
-  "icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
+  
+  "app": 
+    {
+	"background": 
+	{
+	  "scripts": ["background.js"],
+	  "permissions": ["https://supersweetdomainbutnotcspfriendly.com/"]
+	}
+    },
+    
+    "sandbox": 
+    {
+     "pages": ["sandbox.html"],
+     "permissions": ["https://supersweetdomainbutnotcspfriendly.com/"]
+    },
+  "icons": { "16": "calculator-16.png", "128": "calculator-128.png" },
+  
+  "sockets":
+  {
+    "udp": { "bind" : ":49003" }
+  }
+  
 }
