@@ -8,8 +8,7 @@
     {
 	"background": 
 	{
-	  "scripts": ["background.js"],
-	  "permissions": ["https://supersweetdomainbutnotcspfriendly.com/"]
+	  "scripts": ["background.js"]
 	}
     },
     

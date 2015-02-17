@@ -17,6 +17,8 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script>
       
+       var map;
+       
       google.load("maps", "3", {other_params:'sensor=TRUEorFALSE', callback: 
       
       function initialize() 
@@ -27,12 +29,29 @@
           zoom: 8,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
+       map = new google.maps.Map(mapCanvas, mapOptions);
+  });
+       
       } }); 
       
       function setMapCoords(lattitude, longitude)
       {
-	map.setCenter(new google.maps.LatLng(-25.363882, 131.044922));
+	map.setCenter(new google.maps.LatLng(lattitude, longitude));
+      }
+      
+      window.addEventListener("message", receiveMessage, false);
+
+      function receiveMessage(event)
+      {
+	//console.log(event.data);
+	
+	var coordsArray = event.data.split(",");
+	
+//	console.log(coordsArray);
+	
+	setMapCoords(parseFloat(coordsArray[0]), parseFloat(coordsArray[1]));
+	
+
       }
       
     </script>
