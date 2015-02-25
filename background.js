@@ -31,7 +31,7 @@ var onReceive = function(info)
  //console.log(ab2str(info.data)); //convert byte array to text.  it is however, primarily floating point numbers, so get a better converter.
  //console.log(info.data.byteLength);  console.log("yup");
   
-var i;  
+ 
 
 var recLen = info.data.byteLength;
 
@@ -39,7 +39,7 @@ recLen -= 36;
 
 //console.log("received bytes length: " + recLen)
 
-  for(i = 5; i <= recLen; i+=36){
+  for(var i = 5; i <= recLen; i+=36){
     //first 4 bytes are the integer that identifies the next 8 floats.
     var id = new Uint32Array(info.data.slice(i, i+4))[0]; 
     //console.log("identifier received: " + id);
@@ -55,6 +55,7 @@ recLen -= 36;
     }
   }
 
+  if(chrome.app.window.get("mainwin")) //if the damn window exists, write a message to it, else, just return.
   chrome.app.window.get("mainwin").contentWindow.document.getElementById("mapFrame").contentWindow.postMessage("" + lat + "," + lon , '*');
   
 };

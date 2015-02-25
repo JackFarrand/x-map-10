@@ -18,25 +18,39 @@
     <script>
       
        var map;
-       
-      google.load("maps", "3", {other_params:'sensor=TRUEorFALSE', callback: 
+       var planeMarker;
+     
+      google.load("maps", "3", {other_params:'sensor=TRUEorFALSE',
       
-      function initialize() 
-      {
-        var mapCanvas = document.getElementById('map-canvas');
-        var mapOptions = {
-          center: new google.maps.LatLng(44.5403, -78.5463),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-       map = new google.maps.Map(mapCanvas, mapOptions);
-  });
+      callback: function initialize() 
+	{
+	    var mapCanvas = document.getElementById('map-canvas');
+	    var mapOptions = 
+	    {
+	      center: new google.maps.LatLng(44.5403, -78.5463),
+	      zoom: 8,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    }
+	  
+	  map = new google.maps.Map(mapCanvas, mapOptions);
+	  
+	  var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+	  
+	  planeMarker=new google.maps.Marker({position:myCenter,});
+  
+	  planeMarker.setMap(map);
        
-      } }); 
+	}
+      }
+    );
+       
       
       function setMapCoords(lattitude, longitude)
       {
-	map.setCenter(new google.maps.LatLng(lattitude, longitude));
+	var newLatLng = new google.maps.LatLng(lattitude, longitude)
+	map.panTo(newLatLng);
+	
+	planeMarker.setPosition(newLatLng);
       }
       
       window.addEventListener("message", receiveMessage, false);
