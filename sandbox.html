@@ -36,7 +36,13 @@
 	  
 	  var myCenter=new google.maps.LatLng(51.508742,-0.120850);
 	  
-	  planeMarker=new google.maps.Marker({position:myCenter,});
+	  planeMarker=new google.maps.Marker({position:myCenter,  icon: 
+	  {
+	    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+	    scale: 7,
+	    rotation: 193
+	  }
+	  ,});
   
 	  planeMarker.setMap(map);
        
@@ -44,13 +50,21 @@
       }
     );
        
-      
+      var counter = 0;
       function setMapCoords(lattitude, longitude)
       {
 	var newLatLng = new google.maps.LatLng(lattitude, longitude)
-	map.panTo(newLatLng);
+	
+	  map.panTo(newLatLng);
 	
 	planeMarker.setPosition(newLatLng);
+	planeMarker.setIcon( {
+	    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+	    scale: 7,
+	    rotation: counter % 359
+	  }
+	  );
+	  counter++;
       }
       
       window.addEventListener("message", receiveMessage, false);

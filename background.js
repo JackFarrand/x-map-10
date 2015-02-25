@@ -35,7 +35,7 @@ var onReceive = function(info)
 
 var recLen = info.data.byteLength;
 
-recLen -= 36;
+recLen -= 36; //subtract the byte length of a data set transmission from XP10 from the Bytes received, to make sure we don't indexOutOfBounds
 
 //console.log("received bytes length: " + recLen)
 
