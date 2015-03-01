@@ -20,7 +20,7 @@ chrome.app.runtime.onLaunched.addListener(
 
 var socketId;
 
-var lat, lon;
+var lat, lon, head;
 
 // Handle the "onReceive" event.
 var onReceive = function(info) 
@@ -53,10 +53,20 @@ recLen -= 36; //subtract the byte length of a data set transmission from XP10 fr
        lat = floatView[0];
        lon = floatView[1];
     }
+    
+    if(id === 17)
+    {     
+       var floatView = new Float32Array(info.data.slice(i+4, i+36));    
+     //  console.log("Lattitude: " + floatView[0]);
+    //   console.log("Longitude: " + floatView[1]);
+       
+       head = floatView[2];
+       
+    }
   }
 
   if(chrome.app.window.get("mainwin")) //if the damn window exists, write a message to it, else, just return.
-  chrome.app.window.get("mainwin").contentWindow.document.getElementById("mapFrame").contentWindow.postMessage("" + lat + "," + lon , '*');
+  chrome.app.window.get("mainwin").contentWindow.document.getElementById("mapFrame").contentWindow.postMessage("" + lat + "," + lon + "," + head, '*');
   
 };
 

@@ -1,8 +1,8 @@
 {
-  "name": "Hello World!",
-  "description": "My first Chrome App.",
-  "version": "0.1",
-  "manifest_version": 2,
+  "name": "X-Map 10",
+  "description": "Chrome Application to interface X-Plane 10 with Google Maps",
+  "version": "1.0",
+  "manifest_version": 3,
   
   "app": 
     {
@@ -14,8 +14,7 @@
     
     "sandbox": 
     {
-     "pages": ["sandbox.html"],
-     "permissions": ["https://supersweetdomainbutnotcspfriendly.com/"]
+     "pages": ["sandbox.html"]
     },
   "icons": { "16": "calculator-16.png", "128": "calculator-128.png" },
   

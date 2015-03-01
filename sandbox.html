@@ -39,6 +39,7 @@
 	  planeMarker=new google.maps.Marker({position:myCenter,  icon: 
 	  {
 	    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+	    strokeWeight:1,
 	    scale: 7,
 	    rotation: 193
 	  }
@@ -51,7 +52,7 @@
     );
        
       var counter = 0;
-      function setMapCoords(lattitude, longitude)
+      function setMapCoords(lattitude, longitude, heading)
       {
 	var newLatLng = new google.maps.LatLng(lattitude, longitude)
 	
@@ -61,10 +62,10 @@
 	planeMarker.setIcon( {
 	    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
 	    scale: 7,
-	    rotation: counter % 359
+	    rotation: heading
 	  }
 	  );
-	  counter++;
+	  
       }
       
       window.addEventListener("message", receiveMessage, false);
@@ -77,7 +78,7 @@
 	
 //	console.log(coordsArray);
 	
-	setMapCoords(parseFloat(coordsArray[0]), parseFloat(coordsArray[1]));
+	setMapCoords(parseFloat(coordsArray[0]), parseFloat(coordsArray[1]), parseFloat(coordsArray[2]));
 	
 
       }
