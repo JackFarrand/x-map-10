@@ -1,6 +1,6 @@
 {
   "name": "X-Map 10",
-  "description": "Chrome Application to interface X-Plane 10 with Google Maps",
+  "description": "Chrome Application to connect X-Plane 10 with Google Maps",
   "version": "1.0",
   "manifest_version": 3,
   
@@ -16,7 +16,7 @@
     {
      "pages": ["sandbox.html"]
     },
-  "icons": { "16": "calculator-16.png", "128": "calculator-128.png" },
+  "icons": { "16": "images/calculator-16.png", "128": "images/calculator-128.png" },
   
   "sockets":
   {
