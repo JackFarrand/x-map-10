@@ -1,16 +1,28 @@
-X-Map-10.  Copyright Jack Farrand 01/03/2015, all rights reserved.  If you want to make use of this, or want to tell me how crap my code is, contact me at jack dot farrand at gmail dot com
+## X-Map-10.
 
 Google Chrome Web Browser Application for Showing X-Plane 10 Flight Simulator Location Data on a Google Map.
 
-Version 1.0:
+## Purpose
+
+X Plane is capable of showing a map in flight, but it is sparse, shows little in the way of detail and commonly tanks the framerate.  This application allows you to show the location of your plane in an easy, efficient and flexible way, using the google chrome web browser
+
+## Installation
+
+Download the Zip, enable developer mode for chrome extensions, then install upacked extension, pointing to the root folder you extracted the zip into.  Alternatively, wait, and it will be released on the chrome app store.
+
+## Version 1.0
 
 *non-compiled, non-signed bare code.
+
 *barebones features include:
+
   Location of Plane as Triangular Icon on a Google Map
+  
   Google Map Auto-Centers to the Location of your Plane
+  
   That's it.
 
-HOW TO:
+## HOW TO:
 *To Connect X-Plane (either version 9 or 10 will work), complete the following:
   *You must be running X-Plane 9 or 10 on a local network.
   *Go to settings->Data Input & Output, you must select the first check boxes for data references 17 and 20.
@@ -25,8 +37,11 @@ HOW TO:
   *Close the window with the X at the top right.
  
  X Plane 10 and the X-Map 10 chrome extension should now communicate successfully.
-
   
+## Contributors
 
-/* Disclosure & EULA: by using this software you agree that there is No Warranty, no guarantees, code is provided as-is and you use it at your own risk.*/
-/* I am a C++ Programmer, so the quality of my Javascript work is questionable at best.*/
+Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+
+## License
+
+Copyright Jack Farrand 01/03/2015, all rights reserved for now.  If you want to make use of this, or want to tell me how crap my code is, contact me at jack dot farrand at gmail dot com
