@@ -51,7 +51,7 @@ Download the Zip, enable developer mode for chrome extensions, then install upac
   
 ## Contributors
 
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+Only Me so far. :D  if anyone with a working knowledge of Javascript, css, html or web design in general wants to help I'd appreciate it!
 
 ## License
 
