@@ -11,8 +11,27 @@
     }
       #map-canvas {
         width: 100%;
-        height: 100%;
+        height: 90%;
       }
+	   #map-data {
+	   box-sizing:border-box;
+	   border-top: 1px solid black;
+        width: 100%;
+        height: 10%;
+		background-color: #f0f0f0;
+      }
+	  #map-data-title {
+	   border-bottom: 1px solid black;
+        width: 100%;
+        height: 20px;
+		background-color: #ffffff;
+		text-align: center;
+      }
+	  input[type="checkbox"]
+	  {
+		
+		margin: 20px 0px 20px 20px;
+	  }
     </style>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script>
@@ -87,5 +106,9 @@
   </head>
   <body>
     <div id="map-canvas"></div>
+	<div id="map-data">
+	<div id="map-data-title">Settings</div> 
+	<input type="checkbox" name="trackingBox" checked="true"> track plane to center of map
+	</div>
   </body>
 </html>
