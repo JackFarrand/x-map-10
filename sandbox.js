@@ -4,8 +4,13 @@ var planeMarker;
 var tracking = true;
 var trailing = true;
 
-google.load("maps", "3", {other_params:'sensor=TRUEorFALSE',
-  
+function handleCheckBoxClick(cb)
+{
+  if(cb.name==="trackingBox")
+    tracking = cb.checked;
+}
+
+google.load("maps", "3", {other_params:'sensor=TRUEorFALSE',  
   callback: function initialize() 
   {
     
