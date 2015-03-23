@@ -1,150 +1,32 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <style>
-    body, html
-    {
-    width:100%;
-    height:100%;
-    margin:0px;
-    padding: 0px;
-    }
-    #map-canvas 
-	{
-        width: 90%;
-        height: 100%;
-		position:absolute;
-		top: 0px;
-		left: 15%;
-    }
-	#map-data 
-	{	   
-		box-sizing:border-box;
-		border-right: 1px solid #ccc;
-		width: 15%;
-		height: 100%;
-		position:absolute;
-		top:0px;
-		left:0%;
-		background-color: #fff;
-    }
-	
-	#map-data-title 
-	{
-		box-sizing:border-box;
-		border-bottom: 1px solid #ccc;
-		
-		padding: 20px;
-        width: 100%;
-        height: 20px;
-		background-color: #ffffff;
-		text-align: center;
-    }
-	
-	.input
-	{
-		margin: 	20px 	0px 	20px 	50px;
-				//	top, 	right,	bottom, left
-	}
-	
-	p.input
-	{
-		margin-bottom: 0px;
-	}
-	
-    </style>
+    <link rel="stylesheet" type="text/css" href="sandbox.css">
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script>
-      
-       var map;
-       var planeMarker;
-     
-      google.load("maps", "3", {other_params:'sensor=TRUEorFALSE',
-      
-      callback: function initialize() 
-	{
-	    var mapCanvas = document.getElementById('map-canvas');
-	    var mapOptions = 
-	    {
-	      center: new google.maps.LatLng(44.5403, -78.5463),
-	      zoom: 8,
-	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    }
-	  
-	  map = new google.maps.Map(mapCanvas, mapOptions);
-	  
-	  var myCenter=new google.maps.LatLng(51.508742,-0.120850);
-	  
-	  planeMarker=new google.maps.Marker({position:myCenter,  icon: 
-	  {
-	    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-	    strokeWeight:2,
-	    scale: 7,
-	    rotation: 0
-	  }
-	  ,});
-  
-	  planeMarker.setMap(map);
-       
-	}
-      }
-    );
-       
-      var counter = 0;
-      function setMapCoords(lattitude, longitude, heading)
-      {
-	var newLatLng = new google.maps.LatLng(lattitude, longitude)
-	
-	  map.panTo(newLatLng);
-	
-	planeMarker.setPosition(newLatLng);
-	planeMarker.setIcon( {
-	    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-		strokeWeight:2,
-	    scale: 7,
-	    rotation: heading
-	  }
-	  );
-	  
-      }
-      
-      window.addEventListener("message", receiveMessage, false);
-
-      function receiveMessage(event)
-      {
-	//console.log(event.data);
-	
-	var coordsArray = event.data.split(",");
-	
-//	console.log(coordsArray);
-	
-	setMapCoords(parseFloat(coordsArray[0]), parseFloat(coordsArray[1]), parseFloat(coordsArray[2]));
-	
-
-      }
-      
-    </script>
+    <script type="text/javascript" src="sandbox.js"></script>   
   </head>
+  
   <body>  
-  <div id="map-data">
-		<div id="map-data-title">Settings</div> 
-		<br>
-			<input type="checkbox" class="input" name="trackingBox" checked="true"> Lock Plane to Center <br>
-			<input type="checkbox" class="input" name="Show Trail" checked="true"> Show Trail <br>
+    
+    <div id="map-data">
+	<div id="map-data-title">Settings</div> 
+	<br>
+	
+	<input type="checkbox" class="input" name="trackingBox" checked="true"> Lock Plane to Center <br>
+	<input type="checkbox" class="input" name="Show Trail" checked="true"> Show Trail <br>
+	
+	<p class="input">Display Aircraft as:</p>
+	<select class="input">
+	  <option value="arrow">	Vector Arrow		</option>
+	  <option value="fighter">	Fighter			</option>
+	  <option value="commercial">	Commercial Airliner	</option>
+	  <option value="light">	Light Aircraft		</option>
+	</select>
 			
-			<p class="input">Display Aircraft as:</p>
-			
-			<select class="input">
-			  <option value="arrow">Vector Arrow</option>
-			  <option value="fighter">Fighter</option>
-			  <option value="commercial">Commercial Airliner</option>
-			  <option value="light">Light Aircraft</option>
-			</select>
-			
-		</div>
+    </div>
 		
     <div id="map-canvas"><!-- Map Goes Here When Loaded in JS --></div>
-	
 	
   </body>
 </html>
