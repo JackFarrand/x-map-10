@@ -9,8 +9,8 @@
   
   <body>  
     
-    <div id="map-data">
-	<div id="map-data-title">Settings</div> 
+    <div id="map-menu">
+	<div id="map-menu-title">Settings</div> 
 	<br>
 	
 	<input type="checkbox" class="input" name="trackingBox" checked="true" onclick="handleCheckBoxClick(this);"> Lock Plane to Center <br>
@@ -27,6 +27,9 @@
 	</select>
 			
     </div>
+	 
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger"></label>
 		
     <div id="map-canvas"><!-- Map Goes Here When Loaded in JS --></div>
 	
