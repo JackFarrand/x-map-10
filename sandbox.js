@@ -46,6 +46,8 @@ google.load("maps", "3", {other_params:'sensor=TRUEorFALSE',
 
 window.addEventListener("message", receiveMessage, false);
 
+
+
 function receiveMessage(event)
 {
   //console.log(event.data);
@@ -58,9 +60,16 @@ function receiveMessage(event)
   
   
 }
-
+var lastUpdate = performance.now();
 function setMapCoords(lattitude, longitude, heading)
 {
+  
+  if(performance.now() - lastUpdate > 500)
+  {
+      console.log("adding a point to the polyline...");
+      lastUpdate = performance.now();
+  }
+ 
   var newLatLng = new google.maps.LatLng(lattitude, longitude)
   
   if(tracking)
