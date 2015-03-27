@@ -8,7 +8,7 @@
  }
  #map-canvas 
  {
-	min-width: 100%;
+    min-width: 100%;
     min-height: 100%;
     background-color: #fff;
     position: relative;
@@ -88,4 +88,3 @@ label[for="nav-trigger"]
  .nav-trigger + label, #map-canvas {
     transition: left 0.2s;
 }
- 
