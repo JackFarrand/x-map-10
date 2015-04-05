@@ -2,7 +2,6 @@
 var map;
 var planeMarker;
 var flightPath;
-var flightPathCoordinates;
 var tracking = true;
 var trailing = true;
 
@@ -42,12 +41,15 @@ google.load("maps", "3", {other_params:'sensor=TRUEorFALSE',
     
     planeMarker.setMap(map);
     
-    flightPathCoordinates = [
-    new google.maps.LatLng(37.772323, -122.214897),
-    new google.maps.LatLng(21.291982, -157.821856),
-    new google.maps.LatLng(-18.142599, 178.431),
-    new google.maps.LatLng(-27.46758, 153.027892)
-    ];
+    
+    flightPath = new google.maps.Polyline({
+      geodesic: false,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+      });
+
+    flightPath.setMap(map);
     
   }
 }
@@ -76,20 +78,11 @@ function setMapCoords(lattitude, longitude, heading)
   
   if(performance.now() - lastUpdate > 500)
   {
-      console.log("adding a point to the polyline...");
       lastUpdate = performance.now();
       
-      flightPathCoordinates.push(newLatLng);
+       var path = flightPath.getPath();
       
-      flightPath = new google.maps.Polyline({
-      path: flightPathCoordinates,
-      geodesic: false,
-      strokeColor: '#FF0000',
-      strokeOpacity: 1.0,
-      strokeWeight: 2
-      });
-
-  flightPath.setMap(map);
+      path.push(newLatLng);   
   }
     
   if(tracking)
