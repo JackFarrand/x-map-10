@@ -6,6 +6,7 @@
    padding: 0px;
    overflow-x: hidden;
  }
+ 
  #map-canvas 
  {
     min-width: 100%;
@@ -17,11 +18,12 @@
     left: 0;
     z-index: 1;
  }
+ 
  #map-menu 
  {	   
     width: 300px;
     height: 100%;
-	background: #fff;
+    background: #fff;
     position: fixed;
     top: 0;
     right: 0;
@@ -29,8 +31,7 @@
     left: 0;
     z-index: 0;
  }
- 
-  
+   
  #map-menu-title 
  {
    box-sizing:border-box;
@@ -38,7 +39,8 @@
    padding: 20px;
    width: 100%;
    height: 60px;
-   background-color: #ffffff;
+   background-color: #57c;
+   color:white;
    font-weight: bold;
    text-align: center;
    z-index:10;
@@ -56,15 +58,18 @@ label[for="nav-trigger"]
     top: 15px;
     left: 15px;
     z-index: 2;
-	width: 30px;
+    width: 30px;
     height: 30px;
     cursor: pointer;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
     background-size: contain;
 }
 
-.nav-trigger:checked + label {
-   /* left: 315px;*/ /*This is if you want the menu button to move.  I don't like this, it makes the user move the mouse too much and isn't intuitive, so I've commented it out for now*/
+.nav-trigger:checked + label 
+{
+    /*change background of SVG to white when clicked*/
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' fill='white' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");  
+    /* left: 315px;*/ /*This is if you want the menu button to move.  I don't like this, it makes the user move the mouse too much and isn't intuitive, so I've commented it out for now*/
 }
  
 .nav-trigger:checked  ~ #map-canvas{
@@ -75,7 +80,7 @@ label[for="nav-trigger"]
 
  .input
  {
-   margin: 	20px 	0px 	20px 	50px;
+   margin: 	20px 	0px 	20px 	30px;
    /*	top, 	right,	bottom, left*/
  }
 
@@ -86,6 +91,7 @@ label[for="nav-trigger"]
  }
  
  /*Superfluous stuff goes here*/
- .nav-trigger + label, #map-canvas {
-    transition: left 0.5s;
-}
+ .nav-trigger + label, #map-canvas 
+ {
+    transition: left 0.5s, background-image 0.5s;
+ }
