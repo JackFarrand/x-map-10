@@ -37,8 +37,9 @@
    border-bottom: 1px solid #ccc;
    padding: 20px;
    width: 100%;
-   height: 20px;
+   height: 60px;
    background-color: #ffffff;
+   font-weight: bold;
    text-align: center;
    z-index:10;
  }
@@ -63,7 +64,7 @@ label[for="nav-trigger"]
 }
 
 .nav-trigger:checked + label {
-    left: 315px;
+   /* left: 315px;*/ /*This is if you want the menu button to move.  I don't like this, it makes the user move the mouse too much and isn't intuitive, so I've commented it out for now*/
 }
  
 .nav-trigger:checked  ~ #map-canvas{
@@ -86,5 +87,5 @@ label[for="nav-trigger"]
  
  /*Superfluous stuff goes here*/
  .nav-trigger + label, #map-canvas {
-    transition: left 0.2s;
+    transition: left 0.5s;
 }
