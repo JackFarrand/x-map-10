@@ -5,6 +5,12 @@ body, html
    margin:0px;
    padding: 0px;
    overflow-x: hidden;
+   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-variant: normal;
+   font-weight: 400;
+   line-height: 20px;
  }
  
  #map-canvas 
@@ -42,9 +48,9 @@ body, html
    background-color: #57c;
    color:white;
    font-weight: bold;
+   font-size:18px;
    text-align: center;
-   z-index:10;
- }
+  }
  
  
 
@@ -67,6 +73,7 @@ label.checkboxLabel
     display: inline-block;
 	vertical-align: middle;
 	margin-left: 45px;
+	margin-right: -10px;
 	width:150px;
 }
 
