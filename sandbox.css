@@ -68,6 +68,13 @@ input.input[type=checkbox]
 	vertical-align: middle;
 }
 
+input.input[type=checkbox]:after
+{
+  width:50px;
+  height:50px;
+  background-color:red;
+}
+
 label.checkboxLabel 
 {
     display: inline-block;
@@ -110,7 +117,8 @@ label[for="nav-trigger"]
     /* left: 315px;*/ /*This is if you want the menu button to move.  I don't like this, it makes the user move the mouse too much and isn't intuitive, so I've commented it out for now*/
 }
  
-.nav-trigger:checked  ~ #map-canvas{
+.nav-trigger:checked  ~ #map-canvas
+{
     left: 300px;
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
 }

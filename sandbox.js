@@ -3,12 +3,29 @@ var map;
 var planeMarker;
 var flightPath;
 var tracking = true;
-var trailing = true;
+var show_trail = true;
 
 function handleCheckBoxClick(cb)
 {
   if(cb.name==="trackingBox")
     tracking = cb.checked;
+  
+  if(cb.name==="showTrailBox")
+  {
+    show_trail = cb.checked;
+    
+    if(!show_trail)
+    {
+      flightPath.setMap(null);
+      flightPath.path = {};
+    }
+    else
+    {
+      flightPath.setMap(map);
+    }
+   
+  }
+  
 }
 
 google.load("maps", "3", {other_params:'sensor=TRUEorFALSE',  
@@ -76,7 +93,7 @@ function setMapCoords(lattitude, longitude, heading)
 {
   var newLatLng = new google.maps.LatLng(lattitude, longitude);
   
-  if(performance.now() - lastUpdate > 500)
+  if((performance.now() - lastUpdate > 500) && show_trail) //wait half a second and check that we've been asked to show the trail on the map, otherwise this is pretty pointless.
   {
       lastUpdate = performance.now();
       
