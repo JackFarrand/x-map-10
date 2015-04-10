@@ -1,4 +1,4 @@
- body, html
+body, html
  {
    width:100%;
    height:100%;
@@ -46,8 +46,39 @@
    z-index:10;
  }
  
+ 
+
+.input
+{
+   margin: 	20px 	0px 	20px 	45px;
+   /*	top, 	right,	bottom, left*/
+}
+ 
+input.input[type=checkbox]
+{
+	width:  30px;
+	height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+label.checkboxLabel 
+{
+    display: inline-block;
+	vertical-align: middle;
+	margin-left: 45px;
+	width:150px;
+}
+
+ 
+ p.input
+ {
+   margin-bottom: 0px;
+ }
+ 
  .nav-trigger  /*surrogate checkbox for button control*/
  {
+	display:hidden;
     position: absolute;
     clip: rect(0, 0, 0, 0);
 }
@@ -77,18 +108,6 @@ label[for="nav-trigger"]
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
 }
 
-
- .input
- {
-   margin: 	20px 	0px 	20px 	30px;
-   /*	top, 	right,	bottom, left*/
- }
-
- 
- p.input
- {
-   margin-bottom: 0px;
- }
  
  /*Superfluous stuff goes here*/
  .nav-trigger + label, #map-canvas 
